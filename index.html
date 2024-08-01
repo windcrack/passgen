@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <div class="wrapper">
+            <div class="input-box">
+                <input class="js-input-box" type="text" disabled />
+                <span class="material-symbols-rounded">
+                    copy_all
+                </span>
+            </div>
+            <div class="pass-indicator weak js-pass-indicator-week"></div>
+
+            <div class="pass-length">
+                <div class="detail">
+                    <label for="">Password Length</label>
+                    <span class="js-pass-length-number">16</span>
+                </div>
+                <input class="js-pass-length-input" type="range" name="" id="" min="2" max="32" value="16" step="2">
+            </div>
+
+            <div class="pass-settings">
+                <label for="">Pass Settings</label>
+                <ul class="options">
+                    <li class="option">
+                        <input class="js-option" type="checkbox" name="" id="lowercase" checked readonly disabled>
+                        <label for="lowercase">
+                            lowercase (a-z)
+                        </label>
+                    </li>
+                    <li class="option">
+                        <input class="js-option" type="checkbox" name="" id="uppercase">
+                        <label for="uppercase">
+                            uppercase (A-Z)
+                        </label>
+                    </li>
+                    <li class="option">
+                        <input class="js-option" type="checkbox" name="" id="numbers">
+                        <label for="numbers">
+                            numbers (0-9)
+                        </label>
+                    </li>
+                    <li class="option">
+                        <input class="js-option" type="checkbox" name="" id="symbols">
+                        <label for="symbols">
+                            symbols (~!@#)
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="generate-btn js-generate-btn" type="button">
+                Generate password
+            </button>
+        </div>
+    </div>
+</body>
+</html>
