@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () =>{
           document.querySelector(options.elPassIndicator) || "";
         this.$elButton = document.querySelector(options.elButton) || "";
         this.$elOptions = document.querySelectorAll(options.elOptions) || [];
+        this.$elCopyPass = document.querySelector(options.elCopyPass);
         this.charset = "abdehkmnpswxz";
         this.charsetUp = "ABDEFGHKMNPQRSTWXZ";
         this.charsetNumber = "123456789";
@@ -21,9 +22,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         console.log("$elPassIndicator", this.$elPassIndicator);
     
         this.init();
-        this.selectLenth(this.$elInputBoxRange, this.$elInputBoxRangeNumber);
-        this.selectOption(this.$elOptions);
-        this.passGen(this.$elButton, this.lenCharset);
+    
       }
 
       selectLenth(rangeInput, elBlockNumber) {
@@ -121,9 +120,24 @@ document.addEventListener('DOMContentLoaded', () =>{
         });
       }
 
+      copyPass(){
+        this.$elCopyPass.addEventListener('click', () =>{
+            if (this.$elInputBoxOut.value !== "") {
+              navigator.clipboard.writeText(this.$elInputBoxOut.value);
+            } else {
+              confirm("Нечего копировать");
+            }
+        });
+      }
+
       init(){
         this.$elInputBoxRangeNumber.innerText = this.lenCharset;
         this.$elInputBoxRange.value = this.lenCharset;
+
+        this.selectLenth(this.$elInputBoxRange, this.$elInputBoxRangeNumber);
+        this.selectOption(this.$elOptions);
+        this.passGen(this.$elButton, this.lenCharset);
+        this.copyPass();
       }
     }
 
@@ -134,5 +148,6 @@ document.addEventListener('DOMContentLoaded', () =>{
       elPassIndicator: ".js-pass-indicator-week",
       elButton: ".js-generate-btn",
       elOptions: ".js-option",
+      elCopyPass: ".js-copy-btn",
     });
 })
